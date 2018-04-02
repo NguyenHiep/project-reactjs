@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Item;
 
 class ItemController extends Controller
 {
@@ -13,7 +14,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::all();
+        return response()->json($items);
     }
 
     /**
@@ -34,7 +36,12 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item([
+            'name' => $request->get('name'),
+            'price' => $request->get('price')
+        ]);
+        $item->save();
+        return response()->json('Successfully added');
     }
 
     /**
@@ -56,7 +63,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        return response()->json($item);
     }
 
     /**
@@ -68,7 +76,12 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::find($id);
+        $item->name = $request->get('name');
+        $item->price = $request->get('price');
+        $item->save();
+
+        return response()->json('Successfully Updated');
     }
 
     /**
@@ -79,6 +92,9 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::find($id);
+        $item->delete();
+
+        return response()->json('Successfully Deleted');
     }
 }

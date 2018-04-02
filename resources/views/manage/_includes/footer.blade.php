@@ -1,73 +1,24 @@
+<div class="am-footer">
+  <span>Copyright &copy;. All Rights Reserved. Amanda Responsive Bootstrap 4 Admin Dashboard.</span>
+  <span>Created by: ThemePixels, Inc.</span>
+</div><!-- am-footer -->
+</div><!-- am-mainpanel -->
+<script src="{{ asset('/manages/lib/jquery/jquery.js')}}"></script>
+<script src="{{ asset('/manages/lib/popper.js/popper.js')}}"></script>
+<script src="{{ asset('/manages/lib/bootstrap/bootstrap.js')}}"></script>
+<script src="{{ asset('/manages/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>
+<script src="{{ asset('/manages/lib/jquery-toggles/toggles.min.js')}}"></script>
+<script src="{{ asset('/manages/lib/d3/d3.js')}}"></script>
+<script src="{{ asset('/manages/lib/rickshaw/rickshaw.min.js')}}"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyAEt_DBLTknLexNbTVwbXyq2HSf2UbRBU8"></script>
+<script src="{{ asset('/manages/lib/gmaps/gmaps.js')}}"></script>
+<script src="{{ asset('/manages/lib/Flot/jquery.flot.js')}}"></script>
+<script src="{{ asset('/manages/lib/Flot/jquery.flot.pie.js')}}"></script>
+<script src="{{ asset('/manages/lib/Flot/jquery.flot.resize.js')}}"></script>
+<script src="{{ asset('/manages/lib/flot-spline/jquery.flot.spline.js')}}"></script>
 
-<!-- BEGIN FOOTER -->
-<div class="page-footer">
-  <div class="page-footer-inner text-center display-block"> 2017 &copy; CMS NguyenHiep - Framework Laravel.</div>
-  <div class="scroll-to-top">
-    <i class="icon-arrow-up"></i>
-  </div>
-</div>
-<!-- END FOOTER -->
-@section('scripts')
-<!--[if lt IE 9]>
-<script src="{{asset('/manages/assets/global/plugins/respond.min.js')}}"></script>
-<script src="{{asset('/manages/assets/global/plugins/excanvas.min.js')}}"></script>
-<![endif]-->
-<!-- BEGIN CORE PLUGINS -->
-<script src="{{ asset('js/manage/app.js') }}"> </script>
-
-@stack('custom-scripts')
-<!-- BEGIN ACTION SCRIPTS -->
-<script src="{{asset('/manages/assets/js/layouts.js?v='.VERSION)}}" type="text/javascript"></script>
-<script src="{{asset('/manages/assets/js/action.js?v='.VERSION)}}" type="text/javascript"></script>
-<!-- END ACTION  SCRIPTS -->
-<script type="text/javascript">
-  // Config notifation
-  toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "positionClass": "toast-top-right",
-    "showDuration": "1000",
-    "hideDuration": "5000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
-
-  function show_message(data) {
-    console.log(data.status);
-    var status = data.status;
-    switch (status) {
-      case 'success':
-        toastr["success"](data.message, "Thông báo")
-        break;
-      case 'warning':
-        toastr["warning"](data.message, "Thông báo")
-        break;
-      case 'info':
-        toastr["info"](data.message, "Thông báo")
-        break;
-      default:
-        toastr["error"](data.message, "Thông báo")
-    }
-
-  }
-</script>
-@show
-
-@if(!empty(session('message')) && !empty(session('status')))
-  @php echo '<script>
-              var messages = {
-                status: "'.session('status').'",
-                message: "'.session('message').'"
-                }
-              show_message(messages);
-            </script>';
-  @endphp
-@endif
-@include('manage.blocks.errors')
+<script src="{{ asset('/manages/js/amanda.js')}}"></script>
+<script src="{{ asset('/manages/js/ResizeSensor.js')}}"></script>
+<script src="{{ asset('/manages/js/dashboard.js')}}"></script>
 </body>
-
 </html>

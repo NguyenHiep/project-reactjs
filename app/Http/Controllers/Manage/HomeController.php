@@ -24,6 +24,6 @@ class HomeController extends BaseManageController
      */
     public function index()
     {
-        return view('home');
+        return view('manage.home.index');
     }
 }
